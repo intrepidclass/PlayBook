@@ -127,20 +127,20 @@ android {
     unitTests.isIncludeAndroidResources = true
     execution = "ANDROIDX_TEST_ORCHESTRATOR"
     managedDevices {
-      devices.create<ManagedVirtualDevice>("pixel5") {
+      allDevices.create<ManagedVirtualDevice>("pixel5") {
         device = "Pixel 5"
         apiLevel = 31
       }
-      devices.create<ManagedVirtualDevice>("nexus7") {
+      allDevices.create<ManagedVirtualDevice>("nexus7") {
         device = "Nexus 7"
         apiLevel = 31
       }
-      devices.create<ManagedVirtualDevice>("nexus10") {
+      allDevices.create<ManagedVirtualDevice>("nexus10") {
         device = "Nexus 10"
         apiLevel = 31
       }
       groups.create("screenshotDevices") {
-        targetDevices.addAll(devices.toList())
+        targetDevices.addAll(allDevices.toList())
       }
     }
   }
@@ -172,6 +172,8 @@ dependencies {
   implementation(projects.data)
   implementation(projects.playback)
   implementation(projects.ffmpeg)
+  implementation(files("../ffmpeg/build/downloaded-libs/ffmpeg-kit-full-gpl-6.0-2.LTS.aar")) // Point to build dir
+  implementation("com.arthenica:smart-exception-java9:0.2.1")
   implementation(projects.scanner)
   implementation(projects.playbackScreen)
   implementation(projects.sleepTimer)

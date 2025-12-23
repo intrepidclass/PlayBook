@@ -14,7 +14,7 @@ materialDialog = "3.3.0"
 dagger = "2.55"
 kotlin = "2.1.10"
 media3 = "1.5.1"
-agp = "8.8.0"
+agp = "8.13.0"
 ktlint-core = "1.5.0"
 ktlint-gradlePlugin = "0.10.0"
 retrofit = "2.11.0"
@@ -25,7 +25,6 @@ androidPluginForGradle = { module = "com.android.tools.build:gradle", version.re
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android-startup", version.ref = "leakcanary" }
 leakcanary-plumber = { module = "com.squareup.leakcanary:plumber-android-startup", version.ref = "leakcanary" }
 material = "com.google.android.material:material:1.12.0"
-ffmpeg = "com.arthenica:ffmpeg-kit-audio:6.0-2"
 junit = "junit:junit:4.13.2"
 mockk = "io.mockk:mockk:1.13.16"
 paging-runtime = "androidx.paging:paging-runtime-ktx:3.3.5"
@@ -44,6 +43,7 @@ documentFile = "androidx.documentfile:documentfile:1.0.1"
 koTest-assert = "io.kotest:kotest-assertions-core:5.9.1"
 datastore = "androidx.datastore:datastore-preferences:1.1.2"
 seismic = "com.squareup:seismic:1.0.3"
+smart-exception-java = { module = "com.arthenica:smart-exception-java" }
 viewBinding = { module = "androidx.databinding:viewbinding", version.ref = "agp" }
 appStartup = "androidx.startup:startup-runtime:1.2.0"
 turbine = "app.cash.turbine:turbine:1.2.0"

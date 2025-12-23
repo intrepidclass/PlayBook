@@ -1,5 +1,7 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
+
 plugins {
-  alias(libs.plugins.kotlin.jvm)
+  id("org.jetbrains.kotlin.jvm")
   id("voice.ktlint")
   application
 }
@@ -12,7 +14,8 @@ dependencies {
   implementation(libs.clikt)
 }
 
-kotlin {
+// Use explicit configuration to avoid IDE accessor issues
+configure<KotlinJvmProjectExtension> {
   jvmToolchain {
     languageVersion.set(JavaLanguageVersion.of(17))
   }

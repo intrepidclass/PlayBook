@@ -5,8 +5,11 @@ plugins {
 }
 
 android {
-  buildFeatures {
-    androidResources = true
+  androidResources {
+    enable = true
+  }
+  kotlinOptions {
+    freeCompilerArgs += "-Xextended-compiler-checks"
   }
 }
 
@@ -31,8 +34,6 @@ dependencies {
   implementation(libs.media3.session)
 
   testImplementation(libs.bundles.testing.jvm)
-  testImplementation(libs.media3.testUtils.core)
-  testImplementation(libs.media3.testUtils.robolectric)
   testImplementation(libs.media3.testUtils.core)
   testImplementation(libs.media3.testUtils.robolectric)
 }

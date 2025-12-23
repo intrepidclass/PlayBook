@@ -9,7 +9,8 @@ pluginManagement {
     gradlePluginPortal()
     mavenCentral()
     google()
-    includeBuild("plugins")
+    maven { url = uri("https://jitpack.io") } // Corrected uri() usage
+    // includeBuild("plugins") // Removed this line
   }
 }
 
@@ -17,6 +18,8 @@ dependencyResolutionManagement {
   repositories {
     google()
     maven { setUrl("https://artifactory-external.vkpartner.ru/artifactory/maven") }
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") } // Added for ffmpeg-kit
 
     exclusiveContent {
       forRepository {
@@ -26,13 +29,11 @@ dependencyResolutionManagement {
         includeGroupByRegex("com.github.PaulWoitaschek.*")
       }
     }
-
-    mavenCentral()
   }
 }
 
 plugins {
-  id("com.gradle.develocity") version "3.19.1"
+  id("com.gradle.develocity") version "4.2"
   id("org.gradle.toolchains.foojay-resolver-convention") version ("0.9.0")
 }
 
