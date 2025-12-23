@@ -16,9 +16,6 @@ import voice.common.BookId
 import voice.common.pref.PrefKeys
 import voice.data.repo.BookRepository
 import voice.logging.core.Logger
-import voice.playback.PlayerController
-import voice.playback.playstate.PlayStateManager
-import voice.playback.playstate.PlayStateManager.PlayState.Playing
 import voice.pref.Pref
 import javax.inject.Inject
 import javax.inject.Named
@@ -27,19 +24,18 @@ import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
-import voice.playback.session.SleepTimer as PlaybackSleepTimer
 
 @Singleton
-@ContributesBinding(AppScope::class)
+@ContributesBinding(AppScope::class, SleepTimerApi::class)
 class SleepTimer
 @Inject constructor(
-  private val playStateManager: PlayStateManager,
+  private val playStateProvider: SleepTimerPlayStateProvider,
   private val shakeDetector: ShakeDetector,
   @Named(PrefKeys.SLEEP_TIME)
   private val sleepTimePref: Pref<Int>,
-  private val playerController: PlayerController,
+  private val sleepTimerPlayerControl: SleepTimerPlayerControl,
   private val bookRepo: BookRepository,
-) : PlaybackSleepTimer {
+) : SleepTimerApi {
 
   private val scope = MainScope()
   private val fadeOutDuration = 10.seconds
@@ -84,7 +80,7 @@ class SleepTimer
   fun setActive(sleepTime: Duration = sleepTimePref.value.minutes) {
     Logger.i("Starting sleepTimer. Pause in $sleepTime.")
     leftSleepTime = sleepTime
-    playerController.setVolume(1F)
+    sleepTimerPlayerControl.setVolume(1F)
     sleepJob?.cancel()
     sleepJob = scope.launch {
       startSleepTimerCountdown()
@@ -93,7 +89,7 @@ class SleepTimer
       withTimeout(shakeToResetTime) {
         shakeDetector.detect()
         Logger.i("Shake detected. Reset sleep time")
-        playerController.play()
+        sleepTimerPlayerControl.play()
         setActive()
       }
       Logger.i("exiting")
@@ -112,12 +108,12 @@ class SleepTimer
       withTimeout(shakeToResetTime) {
         shakeDetector.detect()
         Logger.i("Shake detected. Reset sleep time")
-        playerController.play()
+        sleepTimerPlayerControl.play()
         startEoc(bookId)
       }
       Logger.i("exiting")
     }
-    playerController.setVolume(1F)
+    sleepTimerPlayerControl.setVolume(1F)
   }
 
   private suspend fun startSleepTimerCountdown() {
@@ -131,8 +127,8 @@ class SleepTimer
       delay(interval)
       leftSleepTime = (leftSleepTime - interval).coerceAtLeast(Duration.ZERO)
     }
-    playerController.pauseWithRewind(fadeOutDuration)
-    playerController.setVolume(1F)
+    sleepTimerPlayerControl.pauseWithRewind(fadeOutDuration)
+    sleepTimerPlayerControl.setVolume(1F)
   }
 
   private suspend fun startSleepEocCountdown(bookId: BookId) {
@@ -151,7 +147,7 @@ class SleepTimer
 
       delay(timeLeft.coerceAtLeast(125).coerceAtMost(5000).milliseconds)
     }
-    playerController.playPause()
+    sleepTimerPlayerControl.playPause()
   }
 
   private fun updateVolumeForSleepTime() {
@@ -162,14 +158,14 @@ class SleepTimer
     }.coerceIn(0F, 1F)
 
     val volume = 1 - FastOutSlowInInterpolator().getInterpolation(1 - percentageOfTimeLeft)
-    playerController.setVolume(volume)
+    sleepTimerPlayerControl.setVolume(volume)
   }
 
   private suspend fun suspendUntilPlaying() {
-    if (playStateManager.playState != Playing) {
+    if (!playStateProvider.isCurrentlyPlaying()) {
       Logger.i("Not playing. Wait for Playback to continue.")
-      playStateManager.flow
-        .filter { it == Playing }
+      playStateProvider.isPlayingFlow
+        .filter { it /* it is true when playing */ }
         .first()
       Logger.i("Playback continued.")
     }
@@ -178,7 +174,7 @@ class SleepTimer
   private fun cancel() {
     sleepJob?.cancel()
     leftSleepTime = Duration.ZERO
-    playerController.setVolume(1F)
+    sleepTimerPlayerControl.setVolume(1F)
     sleepAtEoc = false
   }
 }

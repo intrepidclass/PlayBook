@@ -31,6 +31,7 @@ import voice.logging.core.Logger
 import voice.playback.player.VoicePlayer
 import voice.playback.session.search.BookSearchHandler
 import voice.playback.session.search.BookSearchParser
+import voice.sleepTimer.SleepTimerApi
 import javax.inject.Inject
 
 class LibrarySessionCallback
@@ -43,7 +44,7 @@ class LibrarySessionCallback
   @CurrentBook
   private val currentBookId: DataStore<BookId?>,
   private val sleepTimerCommandUpdater: SleepTimerCommandUpdater,
-  private val sleepTimer: SleepTimer,
+  private val sleepTimer: SleepTimerApi,
   private val bookRepository: BookRepository,
 ) : MediaLibrarySession.Callback {
 
