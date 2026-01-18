@@ -118,15 +118,32 @@ class SleepTimer
 
   private suspend fun startSleepTimerCountdown() {
     var interval = 500.milliseconds
+    var shakeDetectionJob: Job? = null
+
     while (leftSleepTime > Duration.ZERO) {
       suspendUntilPlaying()
-      if (leftSleepTime < fadeOutDuration) {
+      if (leftSleepTime < fadeOutDuration && shakeDetectionJob == null) {
+        // Start shake detection when fade-out begins
+        shakeDetectionJob = scope.launch {
+          withTimeout(fadeOutDuration) {
+            shakeDetector.detect()
+            Logger.i("Shake detected during fade-out. Resetting timer.")
+            sleepJob?.cancel() // Cancel the main sleep job
+            sleepTimerPlayerControl.setVolume(1F)
+            setActive() // Restart the timer
+          }
+        }
         interval = 200.milliseconds
+      }
+
+      if (leftSleepTime < fadeOutDuration) {
         updateVolumeForSleepTime()
       }
+
       delay(interval)
       leftSleepTime = (leftSleepTime - interval).coerceAtLeast(Duration.ZERO)
     }
+    shakeDetectionJob?.cancel() // Cancel shake detection if timer finishes
     sleepTimerPlayerControl.pauseWithRewind(fadeOutDuration)
     sleepTimerPlayerControl.setVolume(1F)
   }
