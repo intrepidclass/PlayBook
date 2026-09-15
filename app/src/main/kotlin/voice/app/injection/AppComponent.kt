@@ -3,7 +3,6 @@ package voice.app.injection
 import android.app.Application
 import com.squareup.anvil.annotations.MergeComponent
 import dagger.BindsInstance
-import dagger.Component
 import voice.app.AppController
 import voice.app.features.MainActivity
 import voice.app.features.bookOverview.EditCoverDialogController
@@ -25,7 +24,7 @@ interface AppComponent {
   fun inject(target: MainActivity)
   fun inject(target: SettingsContentObserver)
 
-  @Component.Factory
+  @MergeComponent.Factory
   interface Factory {
     fun create(@BindsInstance application: Application): AppComponent
   }

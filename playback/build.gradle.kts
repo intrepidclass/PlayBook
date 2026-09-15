@@ -1,20 +1,31 @@
+import com.android.build.api.dsl.LibraryExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   id("voice.library")
   alias(libs.plugins.anvil)
   alias(libs.plugins.kotlin.serialization)
+  alias(libs.plugins.ksp)
 }
 
-android {
-  androidResources {
+extensions.configure<LibraryExtension> {
+  androidResources.apply {
     enable = true
   }
-  kotlinOptions {
-    freeCompilerArgs += "-Xextended-compiler-checks"
+}
+
+tasks.withType<KotlinCompile>().configureEach {
+  compilerOptions {
+    freeCompilerArgs.addAll("-Xextended-compiler-checks")
   }
 }
 
 anvil {
   generateDaggerFactories.set(true)
+  useKsp(
+    contributesAndFactoryGeneration = false,
+    componentMerging = true,
+  )
 }
 
 dependencies {

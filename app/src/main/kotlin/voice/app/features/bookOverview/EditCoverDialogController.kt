@@ -50,7 +50,7 @@ class EditCoverDialogController(bundle: Bundle) : DialogController(bundle) {
     val binding = DialogCoverEditBinding.inflate(activity!!.layoutInflater)
     val arguments = args.parcelable<Arguments>(NI_ARGS)!!
 
-    binding.cropOverlay.selectionOn = true
+    binding.cropOverlay.isSelectionOn = true
     binding.coverImage.load(arguments.coverUri)
 
     val dialog = MaterialDialog(activity!!).apply {

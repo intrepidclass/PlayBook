@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.LibraryExtension
+
 plugins {
   id("voice.library")
   id("voice.compose")
@@ -8,9 +10,8 @@ anvil {
   generateDaggerFactories.set(true)
 }
 
-android {
-  androidResources {
-    enable = true
+extensions.configure<LibraryExtension> {
+  androidResources.apply {
   }
 }
 
@@ -18,13 +19,11 @@ dependencies {
   implementation(projects.common)
   implementation(projects.strings)
   implementation(projects.data)
-  implementation(projects.datastore)
-  implementation(projects.folderPicker)
   implementation(projects.pref)
+  implementation(projects.datastore)
 
-  implementation(libs.datastore)
-  implementation(libs.coil)
   implementation(libs.androidxCore)
-
+  implementation(libs.material)
   implementation(libs.dagger.core)
+  implementation(libs.anvil.annotations)
 }

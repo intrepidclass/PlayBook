@@ -1,4 +1,4 @@
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -8,7 +8,7 @@ class LibraryPlugin : Plugin<Project> {
 
   override fun apply(target: Project) {
     target.pluginManager.apply("com.android.library")
-    target.pluginManager.apply("kotlin-android")
+    target.pluginManager.apply("org.jetbrains.kotlin.android")
     target.pluginManager.apply("voice.ktlint")
 
     // Access the version catalog
@@ -21,7 +21,11 @@ class LibraryPlugin : Plugin<Project> {
       namespace = "voice." + target.path.removePrefix(":").replace(':', '.')
       this.compileSdk = compileSdkVer // Use this.compileSdk to be explicit about the receiver
 
-      defaultConfig {
+      androidResources.apply {
+        enable = true
+      }
+
+      defaultConfig.apply {
         this.minSdk = minSdkVer // Use this.minSdk
         // targetSdk will typically default based on compileSdk or can be set explicitly if needed
       }

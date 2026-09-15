@@ -11,11 +11,11 @@ repositories {
 }
 
 dependencies {
-  implementation("com.android.tools.build:gradle:8.13.0") // androidPluginForGradle
-  implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.10") // kotlin.pluginForGradle
-  compileOnly("org.jetbrains.kotlin:kotlin-compiler-embeddable:2.1.10") // kotlin.compilerEmbeddable
-  implementation("io.github.usefulness:ktlint-gradle-plugin:0.10.0") // ktlint.gradlePlugin
-  implementation("org.jetbrains.kotlin:compose-compiler-gradle-plugin:2.1.10")}
+  implementation("com.android.tools.build:gradle:9.4.0") // androidPluginForGradle
+  implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.10") // kotlin.pluginForGradle
+  compileOnly("org.jetbrains.kotlin:kotlin-compiler-embeddable:2.2.10") // kotlin.compilerEmbeddable
+  implementation("io.github.usefulness:ktlint-gradle-plugin:0.14.0") // ktlint.gradlePlugin
+  implementation("org.jetbrains.kotlin:compose-compiler-gradle-plugin:2.2.10")}
 
 gradlePlugin {
   plugins {

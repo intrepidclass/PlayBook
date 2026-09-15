@@ -115,6 +115,10 @@ class VoicePlayer
     return super.getAvailableCommands()
       .buildUpon()
       .addAll(
+        COMMAND_PLAY_PAUSE,
+        COMMAND_STOP,
+        COMMAND_SET_MEDIA_ITEM,
+        COMMAND_PREPARE,
         Player.COMMAND_SEEK_TO_PREVIOUS_MEDIA_ITEM,
         Player.COMMAND_SEEK_TO_PREVIOUS,
         Player.COMMAND_SEEK_TO_NEXT,

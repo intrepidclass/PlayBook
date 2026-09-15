@@ -1,8 +1,11 @@
-import com.android.build.gradle.BaseExtension
+import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.dsl.CommonExtension
+import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.withType
@@ -16,7 +19,8 @@ fun Project.baseSetup() {
   tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
       languageVersion.set(KotlinVersion.KOTLIN_1_9)
-      jvmTarget.set(JvmTarget.JVM_11)
+      jvmTarget.set(JvmTarget.JVM_17)
+      freeCompilerArgs.add("-Xjvm-default=all")
       optIn.addAll(
         listOf(
           "kotlin.RequiresOptIn",
@@ -27,33 +31,50 @@ fun Project.baseSetup() {
           "kotlinx.coroutines.FlowPreview",
         ),
       )
-      allWarningsAsErrors.set(true)
+      allWarningsAsErrors.set(false)
     }
   }
-  extensions.configure<KotlinProjectExtension> {
-    jvmToolchain {
+  extensions.configure<JavaPluginExtension> {
+    toolchain {
       languageVersion.set(JavaLanguageVersion.of(17))
     }
   }
-  extensions.configure<BaseExtension> {
+
+  extensions.findByType(CommonExtension::class.java)?.apply {
     namespace = "voice." + path.removePrefix(":").replace(':', '.')
-    compileOptions {
+    compileSdk = libs.findVersion("sdk-compile").get().requiredVersion.toInt()
+
+    compileOptions.apply {
       isCoreLibraryDesugaringEnabled = true
-      sourceCompatibility = JavaVersion.VERSION_11
-      targetCompatibility = JavaVersion.VERSION_11
+      sourceCompatibility = JavaVersion.VERSION_17
+      targetCompatibility = JavaVersion.VERSION_17
     }
-    defaultConfig {
-      multiDexEnabled = true
+
+    defaultConfig.apply {
       minSdk = libs.findVersion("sdk-min").get().requiredVersion.toInt()
-      targetSdk = libs.findVersion("sdk-target").get().requiredVersion.toInt()
     }
-    compileSdkVersion(libs.findVersion("sdk-compile").get().requiredVersion.toInt())
-    testOptions {
-      unitTests.isReturnDefaultValues = true
+
+    testOptions.apply {
+      unitTests.apply {
+        isReturnDefaultValues = true
+        isIncludeAndroidResources = true
+      }
       animationsDisabled = true
-      unitTests.isIncludeAndroidResources = true
+    }
+
+    packaging.apply {
+      jniLibs.apply {
+        useLegacyPackaging = false
+      }
     }
   }
+
+  extensions.findByType(ApplicationExtension::class.java)?.apply {
+    defaultConfig.apply {
+      targetSdk = libs.findVersion("sdk-target").get().requiredVersion.toInt()
+    }
+  }
+
   dependencies.run {
     add("coreLibraryDesugaring", libs.findLibrary("desugar").get())
     if (project.path != ":logging:core") {

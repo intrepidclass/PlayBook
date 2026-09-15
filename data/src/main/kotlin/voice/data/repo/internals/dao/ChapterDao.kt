@@ -17,5 +17,5 @@ interface ChapterDao {
   suspend fun chapters(ids: List<ChapterId>): List<Chapter>
 
   @Insert(onConflict = OnConflictStrategy.REPLACE)
-  suspend fun insert(chapter: Chapter)
+  suspend fun insert(chapter: Chapter): Long
 }

@@ -5,7 +5,7 @@ plugins {
 }
 
 anvil {
-  generateDaggerFactories.set(true)
+  generateDaggerFactories.set(false)
 }
 
 dependencies {

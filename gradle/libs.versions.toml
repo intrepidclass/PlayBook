@@ -1,58 +1,63 @@
 [versions]
 leakcanary = "2.14"
+smartExceptionJava9 = "0.2.1"
 versionCode = "411"
 versionName = "4.1.1"
 
-sdk-compile = "35"
+sdk-compile = "37"
 sdk-min = "26"
-sdk-target = "34"
+sdk-target = "36"
 
-coroutines = "1.10.1"
-room = "2.6.1"
+coroutines = "1.11.0"
+room = "2.8.5"
 prefs = "1.0.1"
 materialDialog = "3.3.0"
-dagger = "2.55"
-kotlin = "2.1.10"
-media3 = "1.5.1"
-agp = "8.13.0"
-ktlint-core = "1.5.0"
-ktlint-gradlePlugin = "0.10.0"
-retrofit = "2.11.0"
-accompanist = "0.30.0"
+dagger = "2.60.1"
+kotlin = "2.2.10"
+anvil = "0.5.4"
+media3 = "1.11.1"
+ksp = "2.2.10-2.0.2"
+agp = "9.4.0"
+ktlint-core = "1.8.0"
+ktlint-gradlePlugin = "0.14.0"
+retrofit = "3.0.0"
+accompanist = "0.36.0"
 
 [libraries]
+anvil-annotations = { module = "dev.zacsweers.anvil:annotations", version.ref = "anvil" }
 androidPluginForGradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android-startup", version.ref = "leakcanary" }
 leakcanary-plumber = { module = "com.squareup.leakcanary:plumber-android-startup", version.ref = "leakcanary" }
-material = "com.google.android.material:material:1.12.0"
+material = "com.google.android.material:material:1.14.0"
 junit = "junit:junit:4.13.2"
-mockk = "io.mockk:mockk:1.13.16"
-paging-runtime = "androidx.paging:paging-runtime-ktx:3.3.5"
-paging-compose = "androidx.paging:paging-compose:3.3.5"
+mockk = "io.mockk:mockk:1.14.11"
+paging-runtime = "androidx.paging:paging-runtime-ktx:3.5.1"
+paging-compose = "androidx.paging:paging-compose:3.5.1"
 retrofit-core = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit" }
 retrofit-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
-robolectric = "org.robolectric:robolectric:4.14.1"
+robolectric = "org.robolectric:robolectric:4.17"
 coil = "io.coil-kt:coil-compose:2.7.0"
-appCompat = "androidx.appcompat:appcompat:1.7.0"
-androidxCore = "androidx.core:core-ktx:1.15.0"
+appCompat = "androidx.appcompat:appcompat:1.8.0"
+androidxCore = "androidx.core:core-ktx:1.19.0"
 kotlin-pluginForGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-compilerEmbeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "kotlin" }
 desugar = "com.android.tools:desugar_jdk_libs:2.1.4"
 documentFile = "androidx.documentfile:documentfile:1.0.1"
 koTest-assert = "io.kotest:kotest-assertions-core:5.9.1"
-datastore = "androidx.datastore:datastore-preferences:1.1.2"
+datastore = "androidx.datastore:datastore-preferences:1.2.1"
 seismic = "com.squareup:seismic:1.0.3"
 smart-exception-java = { module = "com.arthenica:smart-exception-java" }
+smartExceptionJava9 = { module = "com.arthenica:smart-exception-java9", version.ref = "smartExceptionJava9" }
 viewBinding = { module = "androidx.databinding:viewbinding", version.ref = "agp" }
 appStartup = "androidx.startup:startup-runtime:1.2.0"
 turbine = "app.cash.turbine:turbine:1.2.0"
 molecule = "app.cash.molecule:molecule-runtime:2.0.0"
 immutable = "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.8"
 uiautomator = "androidx.test.uiautomator:uiautomator:2.3.0"
-okhttp = "com.squareup.okhttp3:okhttp:4.12.0"
+okhttp = "com.squareup.okhttp3:okhttp:5.5.0"
 review = "com.google.android.play:review-ktx:2.0.2"
-lottie = "com.airbnb.android:lottie-compose:6.6.2"
+lottie = "com.airbnb.android:lottie-compose:6.7.1"
 clikt = "com.github.ajalt.clikt:clikt:5.0.2"
 
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
@@ -60,7 +65,7 @@ coroutines-guava = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-guava", 
 coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 
-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0"
+serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0"
 
 room-runtime = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
@@ -89,9 +94,9 @@ media3-session = { module = "androidx.media3:media3-session", version.ref = "med
 media3-testUtils-core = { module = "androidx.media3:media3-test-utils", version.ref = "media3" }
 media3-testUtils-robolectric = { module = "androidx.media3:media3-test-utils-robolectric", version.ref = "media3" }
 
-lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:2.8.7"
+lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:2.11.0"
 
-compose-bom = "androidx.compose:compose-bom:2025.01.01"
+compose-bom = "androidx.compose:compose-bom:2026.09.00"
 compose-ui-ui = { module = "androidx.compose.ui:ui" }
 compose-ui-tooling-core = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
@@ -157,9 +162,10 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-anvil = { id = "com.squareup.anvil", version = "2.5.1" }
+anvil = { id = "dev.zacsweers.anvil", version.ref = "anvil" }
 ktlint = { id = "io.github.usefulness.ktlint-gradle-plugin", version.ref = "ktlint-gradlePlugin" }
-ksp = { id = "com.google.devtools.ksp", version = "2.1.10-1.0.29" }
-playPublish = { id = "com.github.triplet.play", version = "3.12.1" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+playPublish = { id = "com.github.triplet.play", version = "4.1.1" }
 android-app = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+legacy-kapt = { id = "com.android.legacy-kapt", version.ref = "agp" }

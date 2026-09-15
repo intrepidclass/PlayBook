@@ -106,6 +106,6 @@ private fun Context.findActivity(): Activity? {
 
 @ContributesTo(AppScope::class)
 interface ReviewComponent {
-  var shouldShowReviewDialog: ShouldShowReviewDialog
+  val shouldShowReviewDialog: ShouldShowReviewDialog
   val reviewManager: ReviewManager
 }

@@ -19,7 +19,8 @@ dependencyResolutionManagement {
     google()
     maven { setUrl("https://artifactory-external.vkpartner.ru/artifactory/maven") }
     mavenCentral()
-    maven { url = uri("https://jitpack.io") } // Added for ffmpeg-kit
+    maven { url = uri("https://jitpack.io") }
+    maven { url = uri("https://artifactory.appodeal.com/appodeal-public") }
 
     exclusiveContent {
       forRepository {

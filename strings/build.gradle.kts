@@ -1,9 +1,11 @@
+import com.android.build.api.dsl.LibraryExtension
+
 plugins {
   id("voice.library")
 }
 
-android {
-  androidResources {
+extensions.configure<LibraryExtension> {
+  androidResources.apply {
     enable = true
   }
 }

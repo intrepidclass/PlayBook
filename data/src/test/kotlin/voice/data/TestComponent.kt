@@ -4,6 +4,7 @@ import androidx.room.migration.Migration
 import com.squareup.anvil.annotations.MergeComponent
 import dagger.BindsInstance
 import voice.common.AppScope
+import voice.common.compose.SharedComponent
 import voice.common.pref.PrefKeys
 import voice.pref.Pref
 import voice.pref.inmemory.InMemoryPref
@@ -13,12 +14,13 @@ import javax.inject.Singleton
 @Singleton
 @MergeComponent(
   scope = AppScope::class,
+  exclude = [SharedComponent::class],
 )
 interface TestComponent {
 
   val migrations: Set<@JvmSuppressWildcards Migration>
 
-  @dagger.Component.Factory
+  @MergeComponent.Factory
   interface Factory {
 
     fun create(

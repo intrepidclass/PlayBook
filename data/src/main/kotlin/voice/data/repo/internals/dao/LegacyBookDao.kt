@@ -34,16 +34,16 @@ interface LegacyBookDao {
   suspend fun bookmarksByFiles(chapters: List<@JvmSuppressWildcards File>): List<LegacyBookmark>
 
   @Query("DELETE FROM bookmark")
-  suspend fun deleteBookmarks()
+  suspend fun deleteBookmarks(): Int
 
   @Query("DELETE FROM chapters")
-  suspend fun deleteChapters()
+  suspend fun deleteChapters(): Int
 
   @Query("DELETE FROM bookSettings")
-  suspend fun deleteSettings()
+  suspend fun deleteSettings(): Int
 
   @Query("DELETE FROM bookMetaData")
-  suspend fun deleteBookMetaData()
+  suspend fun deleteBookMetaData(): Int
   suspend fun deleteAll() {
     deleteBookMetaData()
     deleteSettings()

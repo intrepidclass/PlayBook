@@ -186,7 +186,7 @@ class LibrarySessionCallback
       .build()
     return ConnectionResult.accept(
       sessionCommands,
-      connectionResult.availablePlayerCommands,
+      session.player.availableCommands,
     )
   }
 

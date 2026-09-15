@@ -1,14 +1,20 @@
+import com.android.build.api.dsl.LibraryExtension
+
 plugins {
   id("voice.library")
   id("kotlin-parcelize")
   id("kotlin-kapt")
+  alias(libs.plugins.ksp)
   alias(libs.plugins.kotlin.serialization)
   alias(libs.plugins.anvil)
-  alias(libs.plugins.ksp)
 }
 
 anvil {
-  generateDaggerFactories.set(true)
+  generateDaggerFactories.set(false)
+  useKsp(
+    contributesAndFactoryGeneration = false,
+    componentMerging = true,
+  )
 }
 
 ksp {
@@ -16,15 +22,19 @@ ksp {
   allWarningsAsErrors = true
 }
 
-android {
+extensions.configure<LibraryExtension> {
 
-  defaultConfig {
+  androidResources {
+    enable = true
+  }
+
+  defaultConfig.apply {
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
   sourceSets {
     named("test") {
-      assets.srcDir(project.file("schemas"))
+      assets.directories.add(project.file("schemas").path)
     }
   }
 }
@@ -41,9 +51,11 @@ dependencies {
   ksp(libs.room.compiler)
 
   implementation(libs.dagger.core)
-  kaptTest(libs.dagger.compiler)
+  implementation(libs.anvil.annotations)
   implementation(libs.datastore)
   implementation(libs.documentFile)
+
+  kapt(libs.dagger.compiler)
 
   testImplementation(libs.room.testing)
   testImplementation(libs.androidX.test.core)

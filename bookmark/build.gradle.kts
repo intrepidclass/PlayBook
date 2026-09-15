@@ -15,6 +15,7 @@ dependencies {
   implementation(projects.data)
   implementation(projects.datastore)
   implementation(libs.dagger.core)
+  implementation(libs.anvil.annotations)
   implementation(libs.materialDialog.core)
   implementation(libs.materialDialog.input)
   implementation(projects.pref)

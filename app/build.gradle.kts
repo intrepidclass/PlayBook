@@ -1,16 +1,17 @@
 @file:Suppress("UnstableApiUsage")
 
+import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.ManagedVirtualDevice
-import com.android.build.gradle.internal.dsl.SigningConfig
 import java.util.Properties
 
 plugins {
   id("voice.app")
   id("voice.compose")
   id("kotlin-parcelize")
-  id("kotlin-kapt")
+  alias(libs.plugins.ksp)
   alias(libs.plugins.kotlin.serialization)
   alias(libs.plugins.anvil)
+  id("kotlin-kapt")
   alias(libs.plugins.playPublish)
 }
 
@@ -22,14 +23,20 @@ play {
   }
 }
 
-kapt {
-  arguments {
-    arg("dagger.fastInit", "enabled")
-    arg("dagger.fullBindingGraphValidation", "ERROR")
-  }
+ksp {
+  arg("dagger.fastInit", "enabled")
+  arg("dagger.fullBindingGraphValidation", "ERROR")
 }
 
-android {
+anvil {
+  generateDaggerFactories.set(false)
+  useKsp(
+    contributesAndFactoryGeneration = false,
+    componentMerging = true,
+  )
+}
+
+extensions.configure<ApplicationExtension> {
 
   namespace = "voice.app"
 
@@ -37,14 +44,14 @@ android {
     generateLocaleConfig = true
   }
 
-  defaultConfig {
+  defaultConfig.apply {
     applicationId = "com.goodwy.audiobooklite" //TODO application ID
     versionCode = libs.versions.versionCode.get().toInt()
     versionName = libs.versions.versionName.get()
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-    ndk {
+    ndk.apply {
       abiFilters.clear()
       abiFilters += setOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
     }
@@ -63,18 +70,16 @@ android {
     buildConfigField("String", "SUBSCRIPTION_YEAR_ID_X3", "\"${properties["SUBSCRIPTION_YEAR_ID_X3"]}\"")
   }
 
-  fun createSigningConfig(name: String): SigningConfig {
-    return signingConfigs.create(name) {
-      val properties = Properties()
-      val propertiesFile = rootProject.file("signing/$name/signing.properties")
-        .takeIf { it.canRead() }
-        ?: rootProject.file("signing/ci/signing.properties")
-      properties.load(propertiesFile.inputStream())
-      storeFile = File(propertiesFile.parentFile, "signing.keystore")
-      storePassword = properties["STORE_PASSWORD"] as String
-      keyAlias = properties["KEY_ALIAS"] as String
-      keyPassword = properties["KEY_PASSWORD"] as String
-    }
+  fun createSigningConfig(name: String) = signingConfigs.create(name) {
+    val properties = Properties()
+    val propertiesFile = rootProject.file("signing/$name/signing.properties")
+      .takeIf { it.canRead() }
+      ?: rootProject.file("signing/ci/signing.properties")
+    properties.load(propertiesFile.inputStream())
+    storeFile = File(propertiesFile.parentFile, "signing.keystore")
+    storePassword = properties["STORE_PASSWORD"] as String
+    keyAlias = properties["KEY_ALIAS"] as String
+    keyPassword = properties["KEY_PASSWORD"] as String
   }
 
   val playSigningConfig = createSigningConfig("play")
@@ -82,8 +87,8 @@ android {
 
   val signingFlavor = "signing"
   val freeFlavor = "free"
-  flavorDimensions += signingFlavor
-  flavorDimensions += freeFlavor
+  flavorDimensions.addAll(listOf(signingFlavor, freeFlavor))
+
   productFlavors {
     register("github") {
       dimension = signingFlavor
@@ -108,7 +113,6 @@ android {
     }
     getByName("debug") {
       isMinifyEnabled = false
-      isShrinkResources = false
       applicationIdSuffix = ".debug"
     }
     all {
@@ -121,10 +125,12 @@ android {
     }
   }
 
-  testOptions {
-    unitTests.isReturnDefaultValues = true
+  testOptions.apply {
+    unitTests.apply {
+      isReturnDefaultValues = true
+      isIncludeAndroidResources = true
+    }
     animationsDisabled = true
-    unitTests.isIncludeAndroidResources = true
     execution = "ANDROIDX_TEST_ORCHESTRATOR"
     managedDevices {
       allDevices.create<ManagedVirtualDevice>("pixel5") {
@@ -145,15 +151,15 @@ android {
     }
   }
 
-  lint {
+  lint.apply {
     checkDependencies = true
     ignoreTestSources = true
     warningsAsErrors = true
     lintConfig = rootProject.file("lint.xml")
   }
 
-  packaging {
-    with(resources.pickFirsts) {
+  packaging.apply {
+    resources.pickFirsts.apply {
       add("META-INF/atomicfu.kotlin_module")
       add("META-INF/core.kotlin_module")
     }
@@ -172,8 +178,7 @@ dependencies {
   implementation(projects.data)
   implementation(projects.playback)
   implementation(projects.ffmpeg)
-  implementation(files("../ffmpeg/build/downloaded-libs/ffmpeg-kit-full-gpl-6.0-2.LTS.aar")) // Point to build dir
-  implementation("com.arthenica:smart-exception-java9:0.2.1")
+  implementation(libs.smartExceptionJava9)
   implementation(projects.scanner)
   implementation(projects.playbackScreen)
   implementation(projects.sleepTimer)
@@ -191,6 +196,7 @@ dependencies {
   implementation(libs.material)
   implementation(libs.datastore)
   implementation(libs.appStartup)
+  implementation(libs.documentFile)
 
   implementation(libs.serialization.json)
 
@@ -204,6 +210,7 @@ dependencies {
   debugImplementation(projects.logging.debug)
 
   implementation(libs.dagger.core)
+  implementation(libs.anvil.annotations)
   kapt(libs.dagger.compiler)
 
   implementation(libs.androidxCore)

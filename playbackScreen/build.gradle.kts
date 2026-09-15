@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.LibraryExtension
+
 plugins {
   id("voice.library")
   id("voice.compose")
@@ -8,8 +10,8 @@ anvil {
   generateDaggerFactories.set(true)
 }
 
-android {
-  buildFeatures {
+extensions.configure<LibraryExtension> {
+  buildFeatures.apply {
     viewBinding = true
   }
 }

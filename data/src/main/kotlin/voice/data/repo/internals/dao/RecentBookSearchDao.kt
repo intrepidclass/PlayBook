@@ -14,10 +14,10 @@ abstract class RecentBookSearchDao {
   abstract fun recentBookSearches(): Flow<List<String>>
 
   @Query("DELETE FROM recentBookSearch WHERE searchTerm = :query")
-  abstract suspend fun delete(query: String)
+  abstract suspend fun delete(query: String): Int
 
   @Query("INSERT OR REPLACE INTO recentBookSearch (searchTerm) VALUES (:query)")
-  internal abstract suspend fun addRaw(query: String)
+  internal abstract suspend fun addRaw(query: String): Long
 
   suspend fun add(query: String) {
     addRaw(query)
