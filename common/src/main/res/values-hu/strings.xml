@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Fejezetszámok megjelenítése</string>
-  <string name="sleep_timer_note">Újraindításhoz a befejezést követően 30 másodpercen belül rázza meg az eszközt</string>
+  <string name="sleep_timer_note">Újraindításhoz a befejezést követően 1 percen belül rázza meg az eszközt</string>
   <string name="repeat">Ismétlés</string>
 
   <!--Könyváttekintés-->
@@ -128,6 +128,7 @@ Nagyon hálás lennék, ha véleményt vagy értékelést írna az alkalmazásr�
   <string name="remaining_time">Hátralévő idő</string>
   <string name="any_support_unlock_all">Válassza ki az Ön számára elérhető projekttámogatás szintjét (egyszeri, havi vagy éves). Bármilyen támogatás feloldja az alkalmazás összes funkcióját. Előfizetését bármikor lemondhatja.</string>
   <string name="auto_sleep_timer_end">Befejezési idő</string>
+  <string name="reset_sleep_timer_on_playback_action">Alvásidőzítő visszaállítása lejátszáskor, szüneteltetéskor vagy tekeréskor</string>
   <string name="onboarding_welcome_title_g">Üdvözöljük a PlayBookban!</string>
   <string name="auto_sleep_timer">Indítsa el a szundi időzítőt az ütemterv szerint</string>
   <string name="auto_sleep_timer_start">Kezdési időpont</string>

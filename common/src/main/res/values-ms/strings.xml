@@ -59,7 +59,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Tunjukkan nombor bab</string>
-  <string name="sleep_timer_note">Untuk memulakan semula, goncang peranti dalam masa 30 saat selepas selesai</string>
+  <string name="sleep_timer_note">Untuk memulakan semula, goncang peranti dalam masa 1 minit selepas selesai</string>
   <string name="repeat">Ulang</string>
   <plurals name="chapters_count">
     <item quantity="other">%d bab</item>
@@ -127,6 +127,7 @@
 
   <!--Onboarding-->
   <string name="auto_sleep_timer_end">Masa tamat</string>
+  <string name="reset_sleep_timer_on_playback_action">Tetapkan semula pemasa tidur apabila main, jeda atau leret</string>
   <string name="onboarding_welcome_title_g">Selamat datang ke PlayBook!</string>
   <string name="onboarding_gestures_title">Gunakan gerak isyarat</string>
   <string name="onboarding_show_player">Tunjukkan pemain</string>

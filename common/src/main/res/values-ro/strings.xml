@@ -60,7 +60,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Afișează numerele capitolelor</string>
-  <string name="sleep_timer_note">Pentru a reporni, scuturați dispozitivul în termen de 30 de secunde de la expirarea temporizatorului</string>
+  <string name="sleep_timer_note">Pentru a reporni, scuturați dispozitivul în termen de 1 minut de la expirarea temporizatorului</string>
   <string name="repeat">Repetă</string>
   <plurals name="chapters_count">
     <item quantity="one">%d chapter</item>
@@ -129,6 +129,7 @@
 
   <!--Onboarding-->
   <string name="auto_sleep_timer_end">Ora de sfârșit</string>
+  <string name="reset_sleep_timer_on_playback_action">Resetează cronometrul de somn la redare, pauză sau derulare</string>
   <string name="onboarding_welcome_title_g">Bine ați venit la PlayBook!"</string>
   <string name="onboarding_gestures_title">Utilizați gesturile</string>
   <string name="onboarding_show_player">Afișează playerul</string>

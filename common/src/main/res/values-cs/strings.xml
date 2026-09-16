@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Zobrazit čísla kapitol</string>
-  <string name="sleep_timer_note">Pro restartování zatřeste zařízením do 30 sekund po dokončení</string>
+  <string name="sleep_timer_note">Pro restartování zatřeste zařízením do 1 minuty po dokončení</string>
   <string name="repeat">Opakovat</string>
 
   <!--BookOverview-->
@@ -137,6 +137,7 @@ Byl bych velmi vděčný, kdybyste na Google Play zanechali recenzi nebo hodnoce
   <string name="remaining_time">Zbývající čas</string>
   <string name="any_support_unlock_all">Vyberte si úroveň podpory projektu, která je vám k dispozici (jednorázová, měsíční nebo roční). Jakákoli podpora odemyká všechny funkce aplikace. Předplatné můžete kdykoli zrušit.</string>
   <string name="auto_sleep_timer_end">Čas ukončení</string>
+  <string name="reset_sleep_timer_on_playback_action">Resetovat časovač spánku při přehrávání, pozastavení nebo posunu</string>
   <string name="onboarding_welcome_title_g">Vítejte v PlayBooku!</string>
   <string name="auto_sleep_timer">Spuštění časovače odložení podle plánu</string>
   <string name="auto_sleep_timer_start">Čas zahájení</string>

@@ -158,6 +158,7 @@ class BookPlayViewModel
       sleepTime = sleepTime,
       customSleepTime = sleepTimePref,
       sleepEoc = sleepAtEoc,
+      sleepTimerFadingOut = sleepTime > Duration.ZERO && sleepTime < sleepTimer.fadeOutDuration,
       playing = playState == PlayStateManager.PlayState.Playing,
       title = book.content.name,
       showPreviousNextButtons = hasMoreThanOneChapter,

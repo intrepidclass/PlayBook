@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Mostra i numeri dei capitoli</string>
-  <string name="sleep_timer_note">Per riavviare, scuoti il dispositivo entro 30 secondi dal termine</string>
+  <string name="sleep_timer_note">Per riavviare, scuoti il dispositivo entro 1 minuto dal termine</string>
   <string name="repeat">Ripeti</string>
 
   <!--Panoramica-->
@@ -116,6 +116,7 @@ Ti sarei molto grato se lasci una recensione o una valutazione sull\'applicazion
   <string name="change_book_author">Autore</string>
   <string name="edit_book_author">Modifica autore</string>
   <string name="auto_sleep_timer_end">Ora di fine</string>
+  <string name="reset_sleep_timer_on_playback_action">Reimposta il timer di spegnimento alla riproduzione, pausa o ricerca</string>
   <string name="onboarding_welcome_title_g">Benvenuto in PlayBook!</string>
   <string name="onboarding_gestures_title">Usare i gesti</string>
   <string name="onboarding_show_player">Mostra giocatore</string>

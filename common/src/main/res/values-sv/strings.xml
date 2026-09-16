@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Visa kapitelnummer</string>
-  <string name="sleep_timer_note">För att starta om, skaka enheten inom 30 sekunder efter att den slutar spela</string>
+  <string name="sleep_timer_note">För att starta om, skaka enheten inom 1 minut efter att den slutar spela</string>
   <string name="repeat">Upprepa</string>
 
   <!--BookOverview-->
@@ -116,6 +116,7 @@ Jag skulle vara mycket tacksam om du ger en recension eller betyg på appen på 
   <string name="change_book_author">Författare</string>
   <string name="edit_book_author">Redigera författare</string>
   <string name="auto_sleep_timer_end">Sluttid</string>
+  <string name="reset_sleep_timer_on_playback_action">Återställ insomningstimern vid uppspelning, paus eller sökning</string>
   <string name="onboarding_welcome_title_g">Välkommen till PlayBook!</string>
   <string name="onboarding_gestures_title">Använd gester</string>
   <string name="onboarding_show_player">Visa spelare</string>

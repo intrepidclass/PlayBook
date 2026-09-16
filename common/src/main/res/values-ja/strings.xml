@@ -51,7 +51,7 @@
   <string name="minutes_letter">分</string>
   <string name="seconds_letter">秒</string>
   <string name="show_chapter_numbers">チャプター番号を表示する</string>
-  <string name="sleep_timer_note">再起動するには、終了後 30 秒以内にデバイスを振ってください</string>
+  <string name="sleep_timer_note">再起動するには、終了後 1 分以内にデバイスを振ってください</string>
   <string name="repeat">繰り返す</string>
 
   <!--本の概要-->
@@ -128,6 +128,7 @@ Google Play でアプリのレビューや評価を残していただければ�
   <string name="remaining_time">残り時間</string>
   <string name="any_support_unlock_all">利用可能なプロジェクトサポートのレベル(1回限り、毎月、または毎年)を選択します。どのサポートでも、アプリケーションのすべての機能がロック解除されます。サブスクリプションはいつでもキャンセルできます。</string>
   <string name="auto_sleep_timer_end">終了時間</string>
+  <string name="reset_sleep_timer_on_playback_action">再生・一時停止・シークでスリープタイマーをリセット</string>
   <string name="onboarding_welcome_title_g">PlayBookへようこそ!</string>
   <string name="auto_sleep_timer">スケジュールどおりにスヌーズタイマーを開始</string>
   <string name="auto_sleep_timer_start">開始時間</string>

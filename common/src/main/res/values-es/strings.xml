@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Mostrar números de capítulo</string>
-  <string name="sleep_timer_note">Para reiniciar, agite el dispositivo dentro de los 30 segundos después de terminar</string>
+  <string name="sleep_timer_note">Para reiniciar, agite el dispositivo dentro de 1 minuto después de terminar</string>
   <string name="repeat">Repetir</string>
 
   <!--Resumen del libro-->
@@ -116,6 +116,7 @@ Le agradecería mucho si deja una reseña o calificación sobre la aplicación e
   <string name="change_book_author">Autor</string>
   <string name="edit_book_author">Editar autor</string>
   <string name="auto_sleep_timer_end">Hora de finalización</string>
+  <string name="reset_sleep_timer_on_playback_action">Reiniciar el temporizador de sueño al reproducir, pausar o buscar</string>
   <string name="onboarding_welcome_title_g">¡Bienvenido a PlayBook!</string>
   <string name="onboarding_gestures_title">Usar gestos</string>
   <string name="onboarding_show_player">Mostrar reproductor</string>

@@ -59,7 +59,7 @@
   <string name="minutes_letter">м</string>
   <string name="seconds_letter">з</string>
   <string name="show_chapter_numbers">Паказаць нумары кіраўнікоў</string>
-  <string name="sleep_timer_note">Для перазапуску падтрасіце прыладу на працягу 30 секунд пасля заканчэння таймера</string>
+  <string name="sleep_timer_note">Для перазапуску падтрасіце прыладу на працягу 1 хвіліны пасля заканчэння таймера</string>
   <string name="repeat">Паўтор</string>
   <plurals name="chapters_count">
     <item quantity="one">%d раздзел</item>
@@ -129,6 +129,7 @@
 
   <!--Onboarding-->
   <string name="auto_sleep_timer_end">Час заканчэння</string>
+  <string name="reset_sleep_timer_on_playback_action">Скідаць таймер сну пры прайграванні, паўзе або пошуку</string>
   <string name="onboarding_welcome_title_g">Сардэчна запрашаем у PlayBook!</string>
   <string name="onboarding_gestures_title">Выкарыстоўвайце жэсты</string>
   <string name="onboarding_show_player">Паказаць плэер</string>

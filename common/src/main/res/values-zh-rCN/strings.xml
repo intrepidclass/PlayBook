@@ -51,7 +51,7 @@
   <string name="minutes_letter">分钟</string>
   <string name="seconds_letter">秒</string>
   <string name="show_chapter_numbers">显示章节编号</string>
-  <string name="sleep_timer_note">在定时结束后30秒内摇动设备以重新开始定时</string>
+  <string name="sleep_timer_note">在定时结束后1分钟内摇动设备以重新开始定时</string>
   <string name="repeat">重复</string>
 
   <!--图书概览-->
@@ -128,6 +128,7 @@
   <string name="remaining_time">剩餘時間</string>
   <string name="any_support_unlock_all">選擇可用的項目支援級別（一次性、每月或每年）。任何支援都會解鎖應用程式的所有功能。您可以隨時取消訂閱。</string>
   <string name="auto_sleep_timer_end">結束時間</string>
+  <string name="reset_sleep_timer_on_playback_action">在播放、暫停或搜尋時重設睡眠計時器</string>
   <string name="onboarding_welcome_title_g">歡迎來到 PlayBook！</string>
   <string name="auto_sleep_timer">按計劃啟動貪睡計時器</string>
   <string name="auto_sleep_timer_start">開始時間</string>

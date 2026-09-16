@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Показване на номерата на главите</string>
-  <string name="sleep_timer_note">За да рестартирате, разклатете устройството в рамките на 30 секунди след приключване</string>
+  <string name="sleep_timer_note">За да рестартирате, разклатете устройството в рамките на 1 минута след приключване</string>
   <string name="repeat">Повтаряне</string>
 
   <!--BookOverview-->
@@ -137,6 +137,7 @@
   <string name="remaining_time">Оставащо време</string>
   <string name="any_support_unlock_all">Изберете нивото на поддръжка на проекта (еднократно, месечно или годишно). Всяка поддръжка отключва всички функции на приложението. Можете да отмените абонамента си по всяко време.</string>
   <string name="auto_sleep_timer_end">Краен час</string>
+  <string name="reset_sleep_timer_on_playback_action">Нулиране на таймера за сън при пускане, пауза или превъртане</string>
   <string name="onboarding_welcome_title_g">Добре дошли в PlayBook!</string>
   <string name="auto_sleep_timer">Стартирайте таймера за отлагане по график</string>
   <string name="auto_sleep_timer_start">Начален час</string>

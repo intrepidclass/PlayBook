@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Mostrar os números dos capítulos</string>
-  <string name="sleep_timer_note">Para reiniciar, agite o dispositivo dentro de 30 segundos após terminar</string>
+  <string name="sleep_timer_note">Para reiniciar, agite o dispositivo dentro de 1 minuto após terminar</string>
   <string name="repeat">Repetir</string>
 
   <!--Visão geral do livro-->
@@ -137,6 +137,7 @@ Ficarei muito grato se você deixar um comentário ou avaliação sobre o aplica
   <string name="remaining_time">Tempo restante</string>
   <string name="any_support_unlock_all">Escolha o nível de suporte ao projeto disponível para você (único, mensal ou anual). Qualquer suporte desbloqueia todos os recursos do aplicativo. Você pode cancelar sua assinatura a qualquer momento.</string>
   <string name="auto_sleep_timer_end">Hora de término</string>
+  <string name="reset_sleep_timer_on_playback_action">Redefinir o temporizador de soneca ao reproduzir, pausar ou buscar</string>
   <string name="onboarding_welcome_title_g">Bem-vindo ao PlayBook!</string>
   <string name="auto_sleep_timer">Inicie o cronômetro de soneca de acordo com a programação</string>
   <string name="auto_sleep_timer_start">Hora de início</string>

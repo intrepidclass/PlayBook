@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Afficher les numéros de chapitre</string>
-  <string name="sleep_timer_note">Pour redémarrer, secouez l\'appareil dans les 30 secondes suivant la fin</string>
+  <string name="sleep_timer_note">Pour redémarrer, secouez l\'appareil dans la minute suivant la fin</string>
   <string name="repeat">Répéter</string>
 
   <!--Vue d'ensemble du livre-->
@@ -137,6 +137,7 @@ Je vous serais très reconnaissant de laisser un avis ou une note sur l\'applica
   <string name="remaining_time">Temps restant</string>
   <string name="any_support_unlock_all">Choisissez le niveau de soutien au projet qui vous est offert (ponctuel, mensuel ou annuel). Tout support débloque toutes les fonctionnalités de l’application. Vous pouvez résilier votre abonnement à tout moment.</string>
   <string name="auto_sleep_timer_end">Heure de fin</string>
+  <string name="reset_sleep_timer_on_playback_action">Réinitialiser la minuterie de sommeil lors de la lecture, la pause ou la recherche</string>
   <string name="onboarding_welcome_title_g">Bienvenue sur PlayBook !</string>
   <string name="auto_sleep_timer">Démarrez la minuterie de répétition à l’heure prévue</string>
   <string name="auto_sleep_timer_start">Heure de début</string>

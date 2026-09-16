@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Pokaż numery rozdziałów</string>
-  <string name="sleep_timer_note">Aby ponownie uruchomić, potrząśnij urządzeniem w ciągu 30 sekund po zakończeniu</string>
+  <string name="sleep_timer_note">Aby ponownie uruchomić, potrząśnij urządzeniem w ciągu 1 minuty po zakończeniu</string>
   <string name="repeat">Powtórz</string>
 
   <!--Przegląd książki-->
@@ -138,6 +138,7 @@ Będziemy bardzo wdzięczni.
   <string name="remaining_time">Pozostały czas</string>
   <string name="any_support_unlock_all">Wybierz dostępny dla Ciebie poziom wsparcia projektowego (jednorazowy, miesięczny lub roczny). Każde wsparcie odblokowuje wszystkie funkcje aplikacji. Subskrypcję można anulować w dowolnym momencie.</string>
   <string name="auto_sleep_timer_end">Godzina zakończenia</string>
+  <string name="reset_sleep_timer_on_playback_action">Resetuj minutnik uśpienia przy odtwarzaniu, pauzie lub przewijaniu</string>
   <string name="onboarding_welcome_title_g">Witamy w PlayBook!</string>
   <string name="auto_sleep_timer">Uruchom minutnik drzemki zgodnie z harmonogramem</string>
   <string name="auto_sleep_timer_start">Godzina rozpoczęcia</string>

@@ -95,6 +95,7 @@ private fun SettingsPreview() {
     autoSleepTimer = false,
     autoSleepTimeEnd = "",
     autoSleepTimeStart = "",
+    resetSleepTimerOnPlaybackAction = true,
     gridMode = 2,
     paddings = "0;0;0;0",
     useTransparentNavigation = true,
@@ -135,6 +136,7 @@ private fun SettingsPreview() {
         override fun toggleAutoSleepTimer() {}
         override fun setAutoSleepTimerStart(hour: Int, minute: Int) {}
         override fun setAutoSleepTimerEnd(hour: Int, minute: Int) {}
+        override fun toggleResetSleepTimerOnPlaybackAction() {}
         override fun gridModeDialog() {}
         override fun gridModeDialogChanged(item: Int) {}
         override fun onGridModeDialogRowClick() {}
@@ -446,6 +448,13 @@ private fun Settings(
                 )
               }
             }
+            DividerRow()
+            SettingsSwitchRow(
+              title = stringResource(CommonR.string.reset_sleep_timer_on_playback_action),
+              initSwitch = viewState.resetSleepTimerOnPlaybackAction,
+              toggle = listener::toggleResetSleepTimerOnPlaybackAction,
+              paddingBottom = 5.dp,
+            )
           }
         }
         Spacer(modifier = Modifier.size(16.dp))
@@ -697,26 +706,24 @@ private fun Dialog(
 }
 
 @Composable
-fun Modifier.shake(enabled: Boolean, onAnimationFinish: () -> Unit): Modifier = then(
-  composed(
-    factory = {
-      val distance by animateFloatAsState(
-        targetValue = if (enabled) 12f else 0f,
-        animationSpec = repeatable(
-          iterations = 3,
-          animation = tween(durationMillis = 70, easing = LinearEasing),
-          repeatMode = RepeatMode.Reverse
-        ),
-        finishedListener = { onAnimationFinish.invoke() }, label = ""
-      )
+fun Modifier.shake(enabled: Boolean, onAnimationFinish: () -> Unit): Modifier = composed(
+  factory = {
+    val distance by animateFloatAsState(
+      targetValue = if (enabled) 12f else 0f,
+      animationSpec = repeatable(
+        iterations = 3,
+        animation = tween(durationMillis = 70, easing = LinearEasing),
+        repeatMode = RepeatMode.Reverse
+      ),
+      finishedListener = { onAnimationFinish.invoke() }, label = ""
+    )
 
-      Modifier.graphicsLayer {
-        translationX = if (enabled) distance else 0f
-      }
-    },
-    inspectorInfo = debugInspectorInfo {
-      name = "shake"
-      properties["enabled"] = enabled
+    Modifier.graphicsLayer {
+      translationX = if (enabled) distance else 0f
     }
-  )
+  },
+  inspectorInfo = debugInspectorInfo {
+    name = "shake"
+    properties["enabled"] = enabled
+  }
 )

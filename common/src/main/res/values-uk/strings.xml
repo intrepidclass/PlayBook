@@ -59,7 +59,7 @@
   <string name="minutes_letter">х</string>
   <string name="seconds_letter">с</string>
   <string name="show_chapter_numbers">Показати номери глав</string>
-  <string name="sleep_timer_note">Для перезапуску струсіть пристрій протягом 30 секунд після закінчення таймера</string>
+  <string name="sleep_timer_note">Для перезапуску струсіть пристрій протягом 1 хвилини після закінчення таймера</string>
   <string name="repeat">Повторення</string>
   <plurals name="chapters_count">
     <item quantity="one">%d глава</item>
@@ -129,6 +129,7 @@
 
   <!--Onboarding-->
   <string name="auto_sleep_timer_end">Час закінчення</string>
+  <string name="reset_sleep_timer_on_playback_action">Скидати таймер сну під час відтворення, паузи або перемотування</string>
   <string name="onboarding_welcome_title_g">Ласкаво просимо в PlayBook!</string>
   <string name="onboarding_gestures_title">Використовуйте жести</string>
   <string name="onboarding_show_player">Показати плеєр</string>

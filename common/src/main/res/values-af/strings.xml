@@ -51,7 +51,7 @@
 <string name="minutes_letter">m</string>
 <string name="seconds_letter">s</string>
 <string name="show_chapter_numbers">Wys hoofstuknommers</string>
-<string name="sleep_timer_note">Om te herbegin, skud die toestel binne 30 sekondes nadat dit klaar is</string>
+<string name="sleep_timer_note">Om te herbegin, skud die toestel binne 1 minuut nadat dit klaar is</string>
 <string name="repeat">Herhaal</string>
 
 <!-- BookOverview -->
@@ -128,6 +128,7 @@ Ek sal baie dankbaar wees as jy \'n resensie of beoordeling oor die toepassing o
   <string name="remaining_time">Oorblywende tyd</string>
   <string name="any_support_unlock_all">Kies die vlak van projekondersteuning wat tot jou beskikking is (eenmalig, maandeliks of jaarliks). Enige ondersteuning ontsluit alle kenmerke van die toepassing. Jy kan jou intekening enige tyd kanselleer.</string>
   <string name="auto_sleep_timer_end">Eindtyd</string>
+  <string name="reset_sleep_timer_on_playback_action">Herstel sluimertimer met speel, pouseer of soek</string>
   <string name="onboarding_welcome_title_g">Welkom by PlayBook!</string>
   <string name="auto_sleep_timer">Begin sluimertimer op skedule</string>
   <string name="auto_sleep_timer_start">Begin tyd</string>

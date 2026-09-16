@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">अध्याय संख्याएं दिखाएं</string>
-  <string name="sleep_timer_note">रीस्टार्ट करने के लिए, पूरा करने के बाद 30 सेकंड के भीतर डिवाइस को हिलाएं</string>
+  <string name="sleep_timer_note">रीस्टार्ट करने के लिए, पूरा करने के बाद 1 मिनट के भीतर डिवाइस को हिलाएं</string>
   <string name="repeat">repeat</string>
 
   <!--BookOverview-->
@@ -135,6 +135,7 @@
   <string name="remaining_time">शेष समय</string>
   <string name="any_support_unlock_all">आपके लिए उपलब्ध परियोजना समर्थन का स्तर चुनें (एक बार, मासिक या वार्षिक)। कोई भी समर्थन एप्लिकेशन की सभी विशेषताओं को अनलॉक करता है। आप किसी भी समय अपनी सदस्यता रद्द कर सकते हैं।</string>
   <string name="auto_sleep_timer_end">समाप्ति समय</string>
+  <string name="reset_sleep_timer_on_playback_action">प्ले, पॉज़ या सीक करने पर स्लीप टाइमर रीसेट करें</string>
   <string name="onboarding_welcome_title_g">प्लेबुक में आपका स्वागत है!</string>
   <string name="auto_sleep_timer">समय पर स्नूज़ टाइमर शुरू करें</string>
   <string name="auto_sleep_timer_start">प्रारंभ समय</string>

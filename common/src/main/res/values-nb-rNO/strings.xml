@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Show chapter numbers</string>
-  <string name="sleep_timer_note">To restart, shake the device within 30 seconds after finishing</string>
+  <string name="sleep_timer_note">To restart, shake the device within 1 minute after finishing</string>
   <string name="repeat">Repeat</string>
 
   <!--BookOverview-->
@@ -138,6 +138,7 @@
   <string name="remaining_time">Gjenværende tid</string>
   <string name="any_support_unlock_all">Velg nivået på prosjektstøtte som er tilgjengelig for deg (engangs, månedlig eller årlig). All støtte låser opp alle funksjonene i applikasjonen. Du kan si opp abonnementet når som helst.</string>
   <string name="auto_sleep_timer_end">Sluttid</string>
+  <string name="reset_sleep_timer_on_playback_action">Nullstill sovetimeren ved avspilling, pause eller søk</string>
   <string name="onboarding_welcome_title_g">Velkommen til PlayBook!</string>
   <string name="auto_sleep_timer">Start slumretidtakeren etter planen</string>
   <string name="auto_sleep_timer_start">Starttid</string>

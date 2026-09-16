@@ -51,7 +51,7 @@
   <string name="minutes_letter">d</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Bölüm numaralarını göster</string>
-  <string name="sleep_timer_note">Yeniden başlatmak için, bitirdikten sonra 30 saniye içinde cihazı sallayın</string>
+  <string name="sleep_timer_note">Yeniden başlatmak için, bitirdikten sonra 1 dakika içinde cihazı sallayın</string>
   <string name="repeat">Tekrarla</string>
 
   <!--Kitaba Genel Bakış-->
@@ -128,6 +128,7 @@ Google Play\'de uygulama hakkında bir inceleme veya derecelendirme bırakırsan
   <string name="remaining_time">Kalan süre</string>
   <string name="any_support_unlock_all">Kullanabileceğiniz proje desteği düzeyini seçin (bir kerelik, aylık veya yıllık). Herhangi bir destek, uygulamanın tüm özelliklerinin kilidini açar. Aboneliğinizi istediğiniz zaman iptal edebilirsiniz.</string>
   <string name="auto_sleep_timer_end">Bitiş zamanı</string>
+  <string name="reset_sleep_timer_on_playback_action">Oynatma, duraklatma veya arama sırasında uyku zamanlayıcısını sıfırla</string>
   <string name="onboarding_welcome_title_g">PlayBook\'a hoş geldiniz!</string>
   <string name="auto_sleep_timer">Erteleme zamanlayıcısını programa göre başlat</string>
   <string name="auto_sleep_timer_start">Başlama zamanı</string>

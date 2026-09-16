@@ -60,7 +60,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Show chapter numbers</string>
-  <string name="sleep_timer_note">To restart, shake the device within 30 seconds after finishing</string>
+  <string name="sleep_timer_note">To restart, shake the device within 1 minute after finishing</string>
   <string name="repeat">Repeat</string>
   <plurals name="chapters_count">
     <item quantity="one">%d chapter</item>
@@ -174,5 +174,6 @@
   <string name="auto_sleep_timer">Start snooze timer on schedule</string>
   <string name="auto_sleep_timer_start">Start time</string>
   <string name="auto_sleep_timer_end">End time</string>
+  <string name="reset_sleep_timer_on_playback_action">Reset sleep timer on play, pause, or seek</string>
   <string name="onboarding_welcome_title_g">Welcome to PlayBook!</string>
 </resources>

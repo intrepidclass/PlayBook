@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Onyesha nambari za sura</string>
-  <string name="sleep_timer_note">Ili kuwasha upya, mtikisa kifaa ndani ya sekunde 30 baada ya kumaliza</string>
+  <string name="sleep_timer_note">Ili kuwasha upya, mtikisa kifaa ndani ya dakika 1 baada ya kumaliza</string>
   <string name="repeat">Rudia</string>
 
   <!--Muhtasari wa Kitabu-->
@@ -128,6 +128,7 @@ Nitashukuru sana ukiacha ukaguzi au ukadiriaji kuhusu programu kwenye Google Pla
   <string name="remaining_time">Muda uliobaki</string>
   <string name="any_support_unlock_all">Chagua kiwango cha msaada wa mradi unaopatikana kwako (wakati mmoja, kila mwezi au kila mwaka). Msaada wowote hufungua vipengele vyote vya programu. Unaweza kughairi usajili wako wakati wowote.</string>
   <string name="auto_sleep_timer_end">Muda wa mwisho</string>
+  <string name="reset_sleep_timer_on_playback_action">Weka upya kipima muda cha kulala unapocheza, kusitisha au kutafuta</string>
   <string name="onboarding_welcome_title_g">Karibu kwenye PlayBook!</string>
   <string name="auto_sleep_timer">Anza snooze timer kwenye ratiba</string>
   <string name="auto_sleep_timer_start">Muda wa kuanza</string>

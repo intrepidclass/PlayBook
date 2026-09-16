@@ -59,7 +59,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Mostra els números de capítol</string>
-  <string name="sleep_timer_note">Per reiniciar, sacseja el dispositiu en un termini de 30 segons després d\'haver acabat</string>
+  <string name="sleep_timer_note">Per reiniciar, sacseja el dispositiu en un termini d\'1 minut després d\'haver acabat</string>
   <string name="repeat">Repetiu</string>
   <plurals name="chapters_count">
     <item quantity="one">%d capítol</item>
@@ -129,6 +129,7 @@
 
   <!--Onboarding-->
   <string name="auto_sleep_timer_end">Hora de finalització</string>
+  <string name="reset_sleep_timer_on_playback_action">Reinicia el temporitzador de son en reproduir, pausar o cercar</string>
   <string name="onboarding_welcome_title_g">Benvingut a PlayBook!</string>
   <string name="onboarding_gestures_title">Utilitzar gestos</string>
   <string name="onboarding_show_player">Mostra el reproductor</string>

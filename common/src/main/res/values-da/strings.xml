@@ -51,7 +51,7 @@
   <string name="minutes_letter">m</string>
   <string name="seconds_letter">s</string>
   <string name="show_chapter_numbers">Vis kapitelnumre</string>
-  <string name="sleep_timer_note">For at genstarte skal du ryste enheden inden for 30 sekunder efter afslutning</string>
+  <string name="sleep_timer_note">For at genstarte skal du ryste enheden inden for 1 minut efter afslutning</string>
   <string name="repeat">Gentag</string>
 
   <!--Bogoversigt-->
@@ -116,6 +116,7 @@ Jeg ville være meget taknemmelig, hvis du giver en anmeldelse eller vurdering a
   <string name="change_book_author">Forfatter</string>
   <string name="edit_book_author">Rediger forfatter</string>
   <string name="auto_sleep_timer_end">Sluttid</string>
+  <string name="reset_sleep_timer_on_playback_action">Nulstil søvntimeren ved afspilning, pause eller søgning</string>
   <string name="onboarding_welcome_title_g">Velkommen til PlayBook!</string>
   <string name="onboarding_gestures_title">Brug bevægelser</string>
   <string name="onboarding_show_player">Vis afspiller</string>

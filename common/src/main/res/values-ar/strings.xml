@@ -51,7 +51,7 @@
   <string name="minutes_letter">m </string>
   <string name="seconds_letter">s </string>
   <string name="show_chapter_numbers">إظهار أرقام الفصول</string>
-  <string name="sleep_timer_note">لإعادة التشغيل ، هز الجهاز في غضون 30 ثانية بعد الانتهاء</string>
+  <string name="sleep_timer_note">لإعادة التشغيل ، هز الجهاز في غضون دقيقة واحدة بعد الانتهاء</string>
   <string name="repeat">كرر</string>
 
   <!--نظرة عامة حول الكتاب-->
@@ -125,6 +125,7 @@
   <string name="remaining_time">الوقت المتبقي</string>
   <string name="any_support_unlock_all">اختر مستوى دعم المشروع المتاح لك (لمرة واحدة أو شهريا أو سنويا). أي دعم يفتح جميع ميزات التطبيق. يمكنك إلغاء اشتراكك في أي وقت.</string>
   <string name="auto_sleep_timer_end">وقت الانتهاء</string>
+  <string name="reset_sleep_timer_on_playback_action">إعادة ضبط مؤقت النوم عند التشغيل أو الإيقاف المؤقت أو البحث</string>
   <string name="onboarding_welcome_title_g">مرحبا بكم في PlayBook!</string>
   <string name="auto_sleep_timer">بدء مؤقت الغفوة في الموعد المحدد</string>
   <string name="auto_sleep_timer_start">وقت البدء</string>

@@ -106,6 +106,13 @@ object PrefsModule {
 
   @Provides
   @Singleton
+  @Named(PrefKeys.RESET_SLEEP_TIMER_ON_PLAYBACK_ACTION)
+  fun provideResetSleepTimerOnPlaybackActionPreference(prefs: AndroidPreferences): Pref<Boolean> {
+    return prefs.boolean(PrefKeys.RESET_SLEEP_TIMER_ON_PLAYBACK_ACTION, true)
+  }
+
+  @Provides
+  @Singleton
   @Named(PrefKeys.SINGLE_BOOK_FOLDERS)
   fun provideSingleBookFoldersPreference(prefs: AndroidPreferences): Pref<Set<String>> {
     return prefs.stringSet(PrefKeys.SINGLE_BOOK_FOLDERS, emptySet())

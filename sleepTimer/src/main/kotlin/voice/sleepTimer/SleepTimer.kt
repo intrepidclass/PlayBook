@@ -35,10 +35,14 @@ class SleepTimer
   private val sleepTimePref: Pref<Int>,
   private val sleepTimerPlayerControl: SleepTimerPlayerControl,
   private val bookRepo: BookRepository,
+  @Named(PrefKeys.RESET_SLEEP_TIMER_ON_PLAYBACK_ACTION)
+  private val resetOnPlaybackActionPref: Pref<Boolean>,
 ) : SleepTimerApi {
 
   private val scope = MainScope()
-  private val fadeOutDuration = 10.seconds
+  override val fadeOutDuration = 10.seconds
+  private val shakeToResetTime = 1.minutes
+  private var lastSetSleepTime: Duration = Duration.ZERO
 
   private val _leftSleepTime = MutableStateFlow(Duration.ZERO)
   private val _sleepAtEoc = MutableStateFlow(false)
@@ -57,7 +61,27 @@ class SleepTimer
 
   override fun sleepTimerActive(): Boolean = sleepJob?.isActive == true && leftSleepTime > Duration.ZERO
 
+  override fun isFadingOut(): Boolean = sleepTimerActive() && leftSleepTime < fadeOutDuration
+
+  override fun onPlaybackAction() {
+    if (resetOnPlaybackActionPref.value) {
+      restartIfActive()
+    }
+  }
+
+  override fun onFadeOutInterrupted() {
+    restartIfActive()
+  }
+
+  private fun restartIfActive() {
+    if (sleepTimerActive()) {
+      Logger.i("Playback action detected while sleep timer is active. Resetting to $lastSetSleepTime.")
+      setActive(lastSetSleepTime)
+    }
+  }
+
   private var sleepJob: Job? = null
+  private var shakeDetectionJob: Job? = null
 
   override fun setActive(enable: Boolean) {
     Logger.i("enable=$enable")
@@ -79,12 +103,13 @@ class SleepTimer
 
   fun setActive(sleepTime: Duration = sleepTimePref.value.minutes) {
     Logger.i("Starting sleepTimer. Pause in $sleepTime.")
+    lastSetSleepTime = sleepTime
     leftSleepTime = sleepTime
     sleepTimerPlayerControl.setVolume(1F)
     sleepJob?.cancel()
+    shakeDetectionJob?.cancel()
     sleepJob = scope.launch {
       startSleepTimerCountdown()
-      val shakeToResetTime = 30.seconds
       Logger.d("Wait for $shakeToResetTime for a shake")
       withTimeout(shakeToResetTime) {
         shakeDetector.detect()
@@ -100,10 +125,10 @@ class SleepTimer
     Logger.i("Starting sleepTimer. Pause at end of chapter.")
     sleepAtEoc = true
     sleepJob?.cancel()
+    shakeDetectionJob?.cancel()
     sleepJob = scope.launch {
       startSleepEocCountdown(bookId)
       sleepAtEoc = false
-      val shakeToResetTime = 30.seconds
       Logger.d("Wait for $shakeToResetTime for a shake")
       withTimeout(shakeToResetTime) {
         shakeDetector.detect()
@@ -118,7 +143,7 @@ class SleepTimer
 
   private suspend fun startSleepTimerCountdown() {
     var interval = 500.milliseconds
-    var shakeDetectionJob: Job? = null
+    shakeDetectionJob = null
 
     while (leftSleepTime > Duration.ZERO) {
       suspendUntilPlaying()
@@ -190,6 +215,7 @@ class SleepTimer
 
   private fun cancel() {
     sleepJob?.cancel()
+    shakeDetectionJob?.cancel()
     leftSleepTime = Duration.ZERO
     sleepTimerPlayerControl.setVolume(1F)
     sleepAtEoc = false
